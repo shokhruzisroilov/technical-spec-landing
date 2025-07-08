@@ -1,5 +1,15 @@
 import Image from 'next/image'
 
+interface Testimonial {
+	id: number
+	logo: string
+	text: string
+	text2?: string
+	name: string
+	position: string
+	avatar: string
+}
+
 const testimonials = [
 	{
 		id: 1,
@@ -122,7 +132,7 @@ const ClientSection = () => {
 	)
 }
 
-const TestimonialCard = ({ item }: { item: any }) => (
+const TestimonialCard = ({ item }: { item: Testimonial }) => (
 	<div
 		className={`${
 			item.id === 7 ? 'bg-[#091315]' : 'bg-white'
