@@ -1,5 +1,3 @@
-'use client'
-
 import Image from 'next/image'
 
 const stats = [
@@ -37,7 +35,10 @@ const stats = [
 
 const StatsSection = () => {
 	return (
-		<div className='bg-[#F2F2F2] flex justify-center overflow-hidden'>
+		<div
+			className='bg-[#F2F2F2] flex justify-center overflow-hidden'
+			data-aos='fade-up'
+		>
 			<div className='py-[108px] max-w-[1110px] w-full flex flex-col items-center px-4 sm:px-6 max-sm:pt-[46px] max-sm:pb-[68px]'>
 				<div className='max-w-[1110px] w-full flex flex-col items-center text-center sm:text-left sm:items-start'>
 					<div className='max-w-[519px] w-full mb-4'>

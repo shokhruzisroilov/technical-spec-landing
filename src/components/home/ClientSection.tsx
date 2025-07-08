@@ -75,10 +75,13 @@ const testimonials = [
 
 const ClientSection = () => {
 	return (
-		<div className='flex justify-center px-4 py-[80px] bg-[#F2F2F2]'>
+		<div
+			className='flex justify-center px-4 py-[80px] bg-[#F2F2F2]'
+			data-aos='fade-up'
+		>
 			<div className='max-w-[1110px] w-full'>
 				{/* Header Section */}
-				<div className='flex flex-col items-center text-center sm:items-start sm:text-left'>
+				<div className='flex flex-col items-center text-center lg:items-start sm:text-left'>
 					{/* Label */}
 					<div
 						className='py-[6px] px-[12px] rounded-full w-fit bg-white'
@@ -94,10 +97,10 @@ const ClientSection = () => {
 
 					{/* Title */}
 					<div className='pt-[20px] space-y-[12px]'>
-						<h2 className='text-[#141515] text-[40px] font-semibold leading-[48px] max-sm:text-[24px] max-sm:leading-[26px] sm:text-[32px] sm:leading-[44px] max-w-[600px] text-center sm:text-left'>
+						<h2 className='text-[#141515] text-[40px] font-semibold leading-[48px] max-sm:text-[24px] max-sm:leading-[26px] sm:text-[32px] sm:leading-[44px] max-w-[600px] text-center lg:text-left'>
 							Trusted by Industry Leaders and Innovative Startups
 						</h2>
-						<p className='text-[#646868] text-[14px] leading-[22px] max-w-[500px] text-center sm:text-left'>
+						<p className='text-[#646868] text-[14px] leading-[22px] lg:max-w-[500px] text-center lg:text-left'>
 							At ITIC, we deliver innovative solutions that drive success,
 							earning the trust of startups and enterprises alike.
 						</p>
@@ -105,26 +108,28 @@ const ClientSection = () => {
 				</div>
 
 				{/* Cards Section */}
-				<div className='pt-[48px] flex flex-wrap gap-3 justify-center'>
-					{/* Left Column */}
-					<div className='flex flex-col gap-3'>
-						{testimonials.slice(0, 2).map(item => (
-							<TestimonialCard key={item.id} item={item} />
-						))}
-					</div>
+				<div className='pt-12 px-4 sm:px-6 lg:px-8'>
+					<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 justify-items-center'>
+						{/* Column 1 */}
+						<div className='flex flex-col gap-3 w-full max-w-[350px]'>
+							{testimonials.slice(0, 2).map(item => (
+								<TestimonialCard key={item.id} item={item} />
+							))}
+						</div>
 
-					{/* Middle Column */}
-					<div className='flex flex-col gap-3'>
-						{testimonials.slice(2, 5).map(item => (
-							<TestimonialCard key={item.id} item={item} />
-						))}
-					</div>
+						{/* Column 2 */}
+						<div className='flex flex-col gap-3 w-full max-w-[350px]'>
+							{testimonials.slice(2, 5).map(item => (
+								<TestimonialCard key={item.id} item={item} />
+							))}
+						</div>
 
-					{/* Right Column */}
-					<div className='flex flex-col gap-3'>
-						{testimonials.slice(5, 7).map(item => (
-							<TestimonialCard key={item.id} item={item} />
-						))}
+						{/* Column 3 */}
+						<div className='flex flex-col gap-3 w-full max-w-[350px]'>
+							{testimonials.slice(5, 7).map(item => (
+								<TestimonialCard key={item.id} item={item} />
+							))}
+						</div>
 					</div>
 				</div>
 			</div>

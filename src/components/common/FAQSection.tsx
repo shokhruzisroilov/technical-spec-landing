@@ -46,7 +46,7 @@ const faqData = [
 
 const FAQSection = () => {
 	return (
-		<div className='w-full max-w-2xl mx-auto py-12 px-4'>
+		<div className='w-full max-w-2xl mx-auto py-12 px-4' data-aos='fade-up'>
 			<h2 className='mb-4 font-semibold text-[40px] leading-[56px] tracking-[-0.96px] text-center text-[#171717]'>
 				FAQs
 			</h2>

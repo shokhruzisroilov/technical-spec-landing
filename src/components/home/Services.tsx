@@ -1,5 +1,3 @@
-'use client'
-
 import { Phone } from 'lucide-react'
 import ServiceCard from './ServiceCard'
 import { Service } from '@/types'
@@ -40,7 +38,7 @@ const services: Service[] = [
 
 const Services = () => {
 	return (
-		<section className='flex justify-center'>
+		<section className='flex justify-center' data-aos='fade-up'>
 			<div className='w-full py-20 max-w-[1110px] max-sm:pt-4 px-4 sm:px-8'>
 				{/* Title */}
 				<div className='flex flex-col items-center'>

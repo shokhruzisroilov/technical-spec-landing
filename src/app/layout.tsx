@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import '../styles/globals.css'
 import Header from '@/components/common/Header'
 import Footer from '@/components/common/Footer'
+import { AOSWrapper } from '@/components/common/AOSWrapper'
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -22,9 +23,11 @@ export default function RootLayout({
 	return (
 		<html lang='uz'>
 			<body className={`${inter.variable} antialiased`}>
-				<Header />
-				{children}
-				<Footer />
+				<AOSWrapper>
+					<Header />
+					{children}
+					<Footer />
+				</AOSWrapper>
 			</body>
 		</html>
 	)

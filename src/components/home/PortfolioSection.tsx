@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 import ProjectCard from './ProjectCard'
 import { Project } from '@/types'
@@ -33,7 +31,7 @@ const projects: Project[] = [
 
 const PortfolioSection = () => {
 	return (
-		<section className='bg-[#F2F2F2] flex justify-center'>
+		<section className='bg-[#F2F2F2] flex justify-center' data-aos='fade-up'>
 			<div className='max-w-[1440px] w-full pb-[100px] px-4 sm:px-[65px] lg:px-[165px] flex flex-col items-center'>
 				{/* Title */}
 				<div className='text-center w-full'>
