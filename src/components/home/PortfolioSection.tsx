@@ -31,8 +31,11 @@ const projects: Project[] = [
 
 const PortfolioSection = () => {
 	return (
-		<section className='bg-[#F2F2F2] flex justify-center' data-aos='fade-up'>
-			<div className='max-w-[1440px] w-full pb-[100px] px-4 sm:px-[65px] lg:px-[165px] flex flex-col items-center'>
+		<section className='bg-[#F2F2F2] flex justify-center'>
+			<div
+				className='max-w-[1440px] w-full pb-[100px] px-4 sm:px-[65px] lg:px-[165px] flex flex-col items-center'
+				data-aos='fade-up'
+			>
 				{/* Title */}
 				<div className='text-center w-full'>
 					<div className='py-[6px] px-[12px] rounded-full bg-white mx-auto shadow-md w-fit'>

@@ -38,8 +38,11 @@ const newsData: NewsItem[] = [
 
 const NewsSection = () => {
 	return (
-		<div className='bg-[#F2F2F2] flex justify-center w-full' data-aos='fade-up'>
-			<div className='max-w-[1440px] w-full py-[144px] flex justify-center max-sm:px-[16px] max-sm:py-[46px] sm:px-[16px]'>
+		<div className='bg-[#F2F2F2] flex justify-center w-full'>
+			<div
+				className='max-w-[1100px] w-full py-[144px] flex justify-center max-sm:px-[16px] max-sm:py-[46px] sm:px-[16px]'
+				data-aos='fade-up'
+			>
 				<div className='max-w-[1110px] w-full flex flex-col items-center'>
 					{/* Header */}
 					<div className='mb-[48px] w-full flex flex-col items-center text-center'>

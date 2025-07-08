@@ -75,11 +75,8 @@ const testimonials = [
 
 const ClientSection = () => {
 	return (
-		<div
-			className='flex justify-center px-4 py-[80px] bg-[#F2F2F2]'
-			data-aos='fade-up'
-		>
-			<div className='max-w-[1110px] w-full'>
+		<div className='flex justify-center px-4 py-[80px] bg-[#F2F2F2]'>
+			<div className='max-w-[1110px] w-full' data-aos='fade-up'>
 				{/* Header Section */}
 				<div className='flex flex-col items-center text-center lg:items-start sm:text-left'>
 					{/* Label */}

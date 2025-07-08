@@ -39,7 +39,7 @@ const socialLinks = [
 
 const Footer = () => {
 	return (
-		<div className='flex justify-center w-full'>
+		<div className='flex justify-center w-full' data-aos='fade-up'>
 			<div className='max-w-[1440px] w-full p-[48px] max-sm:p-[16px]'>
 				<div
 					className='py-[96px] px-[72px] bg-[#091315] rounded-[48px] relative overflow-hidden max-sm:p-[41px] md:px-[31px]'

@@ -39,7 +39,10 @@ const services: Service[] = [
 const Services = () => {
 	return (
 		<section className='flex justify-center' data-aos='fade-up'>
-			<div className='w-full py-20 max-w-[1110px] max-sm:pt-4 px-4 sm:px-8'>
+			<div
+				className='w-full py-20 max-w-[1110px] max-sm:pt-4 px-4 sm:px-8'
+				data-aos='fade-up'
+			>
 				{/* Title */}
 				<div className='flex flex-col items-center'>
 					<div className='bg-white rounded-full px-3 py-1 shadow-sm'>

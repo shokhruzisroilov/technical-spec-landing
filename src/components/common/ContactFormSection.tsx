@@ -24,8 +24,11 @@ const ContactFormSection = () => {
 	}
 
 	return (
-		<div className='flex justify-center w-full bg-white' data-aos='fade-up'>
-			<div className='max-w-[1440px] w-full py-[144px] flex justify-center max-sm:px-[16px] max-sm:py-[46px] sm:px-[16px]'>
+		<div className='flex justify-center w-full bg-white'>
+			<div
+				className='max-w-[1440px] w-full py-[144px] flex justify-center max-sm:px-[16px] max-sm:py-[46px] sm:px-[16px]'
+				data-aos='fade-up'
+			>
 				<div className='max-w-[1110px] w-full flex justify-between max-sm:flex-col max-sm:items-center max-sm:gap-[48px] sm:flex-col sm:items-center sm:gap-[48px] sm:justify-center lg:flex-row lg:items-start'>
 					{/* Left side */}
 					<div>
