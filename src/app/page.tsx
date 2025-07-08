@@ -18,10 +18,13 @@ const Home = () => {
 		<>
 			<HeroSection />
 			<Services />
-			<StatisticSection />
-			<PortfolioSection />
-			<ClientSection />
-			<NewsSection />
+			<div className='bg-[#F2F2F2]'>
+				<StatisticSection />
+				<PortfolioSection />
+				<ClientSection />
+				<NewsSection />
+			</div>
+
 			<ContactFormSection />
 			<FAQSection />
 		</>
