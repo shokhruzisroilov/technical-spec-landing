@@ -1,9 +1,33 @@
+'use client'
+
+import { useForm } from 'react-hook-form'
+
+type ContactFormData = {
+	fullName: string
+	phone: string
+	userEmail: string
+	comment: string
+}
+
 const ContactFormSection = () => {
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+		reset,
+	} = useForm<ContactFormData>()
+
+	const onSubmit = (data: ContactFormData) => {
+		console.log('Get information:', data)
+		// getApi
+		reset()
+	}
+
 	return (
 		<div className='flex justify-center w-full bg-white'>
 			<div className='max-w-[1440px] w-full py-[144px] flex justify-center max-sm:px-[16px] max-sm:py-[46px] sm:px-[16px]'>
 				<div className='max-w-[1110px] w-full flex justify-between max-sm:flex-col max-sm:items-center max-sm:gap-[48px] sm:flex-col sm:items-center sm:gap-[48px] sm:justify-center lg:flex-row lg:items-start'>
-					{/* Left Content */}
+					{/* Left side */}
 					<div>
 						<div className='max-w-[507px]'>
 							<div className='py-[6px] px-[12px] rounded-full w-fit bg-white shadow-sm'>
@@ -25,61 +49,113 @@ const ContactFormSection = () => {
 
 					{/* Form */}
 					<div className='max-w-[507px] w-full'>
-						<form className='w-full space-y-[16px]'>
+						<form
+							onSubmit={handleSubmit(onSubmit)}
+							className='w-full space-y-[16px]'
+						>
 							{/* Full Name */}
 							<div>
-								<p className='text-[#1D1D1D] text-[14px] leading-[20px] font-medium'>
+								<label
+									htmlFor='fullName'
+									className='text-[#1D1D1D] text-[14px] leading-[20px] font-medium'
+								>
 									Full Name
-								</p>
+								</label>
 								<input
+									id='fullName'
 									type='text'
-									name='fullName'
+									{...register('fullName', {
+										required: 'Full name is required',
+									})}
 									className='w-full h-[40px] mt-[8px] rounded-[8px] border border-[#0000000A] bg-[rgba(10,10,10,0.04)] px-3 text-[14px] text-[#1D1D1D] focus:outline-none'
 								/>
+								{errors.fullName && (
+									<p className='text-red-500 text-sm mt-1'>
+										{errors.fullName.message}
+									</p>
+								)}
 							</div>
 
 							{/* Phone Number */}
 							<div>
-								<p className='text-[#1D1D1D] text-[14px] leading-[20px] font-medium'>
+								<label
+									htmlFor='phone'
+									className='text-[#1D1D1D] text-[14px] leading-[20px] font-medium'
+								>
 									Phone Number
-								</p>
+								</label>
 								<input
+									id='phone'
 									type='text'
-									name='phone'
+									{...register('phone', {
+										required: 'Phone number is required',
+									})}
 									className='w-full h-[40px] mt-[8px] rounded-[8px] border border-[#0000000A] bg-[rgba(10,10,10,0.04)] px-3 text-[14px] text-[#1D1D1D] focus:outline-none'
 								/>
+								{errors.phone && (
+									<p className='text-red-500 text-sm mt-1'>
+										{errors.phone.message}
+									</p>
+								)}
 							</div>
 
 							{/* Email */}
 							<div>
-								<p className='text-[#1D1D1D] text-[14px] leading-[20px] font-medium'>
+								<label
+									htmlFor='userEmail'
+									className='text-[#1D1D1D] text-[14px] leading-[20px] font-medium'
+								>
 									Email
-								</p>
+								</label>
 								<input
+									id='userEmail'
 									type='email'
-									name='userEmail'
+									{...register('userEmail', {
+										required: 'Email is required',
+										pattern: {
+											value: /^\S+@\S+$/i,
+											message: 'Invalid email address',
+										},
+									})}
 									className='w-full h-[40px] mt-[8px] rounded-[8px] border border-[#0000000A] bg-[rgba(10,10,10,0.04)] px-3 text-[14px] text-[#1D1D1D] focus:outline-none'
 								/>
+								{errors.userEmail && (
+									<p className='text-red-500 text-sm mt-1'>
+										{errors.userEmail.message}
+									</p>
+								)}
 							</div>
 
-							{/* Message */}
+							{/* Comment */}
 							<div>
-								<p className='text-[#1D1D1D] text-[14px] leading-[20px] font-medium'>
+								<label
+									htmlFor='comment'
+									className='text-[#1D1D1D] text-[14px] leading-[20px] font-medium'
+								>
 									How can we help?
-								</p>
+								</label>
 								<textarea
-									name='comment'
+									id='comment'
 									placeholder='Your company needs'
+									{...register('comment', { required: 'Message is required' })}
 									className='w-full mt-[8px] h-[152px] rounded-[8px] border border-[#0000000A] bg-[rgba(10,10,10,0.04)] px-[16px] py-[12px] text-[14px] text-[#1D1D1D] resize-none focus:outline-none'
 								></textarea>
+								{errors.comment && (
+									<p className='text-red-500 text-sm mt-1'>
+										{errors.comment.message}
+									</p>
+								)}
 							</div>
 
-							{/* Agreement and Submit */}
+							{/* Submit */}
 							<div>
 								<p className='text-[#0A0A0AB2] text-[16px] leading-[24px]'>
 									By submitting this, I confirm that I have read and understood
 									the{' '}
-									<a href='#' className='border-b border-[#0A0A0AB2]'>
+									<a
+										href='/privacy-policy'
+										className='border-b border-[#0A0A0AB2]'
+									>
 										Privacy Policy.
 									</a>
 								</p>

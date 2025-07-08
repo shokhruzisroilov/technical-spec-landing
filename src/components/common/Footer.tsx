@@ -2,6 +2,41 @@ import { Mail, MapPin, Phone } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
+const footerLinks = [
+	{
+		title: 'Product',
+		links: [
+			{ label: 'Blog', href: '/blog' },
+			{ label: 'News', href: '/news' },
+			{ label: 'What we do', href: '/services' },
+			{ label: 'Areas of expertise', href: '/expertise' },
+		],
+	},
+	{
+		title: 'Company',
+		links: [
+			{ label: 'Global Partners', href: '/partners' },
+			{ label: 'About us', href: '/about' },
+			{ label: 'Our Team', href: '/team' },
+		],
+	},
+	{
+		title: 'Resources',
+		links: [
+			{ label: 'Contact', href: '/contact' },
+			{ label: 'Privacy Policy', href: '/privacy-policy' },
+			{ label: 'Terms of Service', href: '/terms' },
+		],
+	},
+]
+
+const socialLinks = [
+	{ label: 'Telegram', href: '/' },
+	{ label: 'LinkedIn', href: '/' },
+	{ label: 'Twitter', href: '/' },
+	{ label: 'Instagram', href: '/' },
+]
+
 const Footer = () => {
 	return (
 		<div className='flex justify-center w-full'>
@@ -15,6 +50,7 @@ const Footer = () => {
 				>
 					{/* Top */}
 					<div className='flex justify-between w-full max-lg:flex-col max-lg:gap-[20px] relative z-10'>
+						{/* Logo & Description */}
 						<div>
 							<Link href='/'>
 								<Image
@@ -31,79 +67,45 @@ const Footer = () => {
 							</p>
 						</div>
 
-						{/* Links */}
+						{/* Footer Link Sections */}
 						<div className='flex justify-end gap-[24px] w-full max-sm:flex-col max-sm:gap-[20px]'>
-							{/* Product */}
-							<div className='max-w-[187px] w-full'>
-								<p className='text-white text-[14px] font-[500] leading-[22px]'>
-									Product
-								</p>
-								<ul className='pt-[24px] space-y-[16px]'>
-									<li className='text-[#A1A5A5] hover:text-white transition-all duration-200 cursor-pointer text-[14px] leading-[22px]'>
-										Blog
-									</li>
-									<li className='text-[#A1A5A5] hover:text-white transition-all duration-200 cursor-pointer text-[14px] leading-[22px]'>
-										News
-									</li>
-									<li className='text-[#A1A5A5] hover:text-white transition-all duration-200 cursor-pointer text-[14px] leading-[22px]'>
-										What we do
-									</li>
-									<li className='text-[#A1A5A5] hover:text-white transition-all duration-200 cursor-pointer text-[14px] leading-[22px]'>
-										Areas of expertise
-									</li>
-								</ul>
-							</div>
+							{footerLinks.map(section => (
+								<div key={section.title} className='max-w-[187px] w-full'>
+									<p className='text-white text-[14px] font-[500] leading-[22px]'>
+										{section.title}
+									</p>
+									<ul className='pt-[24px] space-y-[16px]'>
+										{section.links.map(link => (
+											<li key={link.label}>
+												<Link
+													href={link.href}
+													className='text-[#A1A5A5] hover:text-white transition-all duration-200 text-[14px] leading-[22px]'
+												>
+													{link.label}
+												</Link>
+											</li>
+										))}
+									</ul>
+								</div>
+							))}
 
-							{/* Company */}
-							<div className='max-w-[187px] w-full'>
-								<p className='text-white text-[14px] font-[500] leading-[22px]'>
-									Company
-								</p>
-								<ul className='pt-[24px] space-y-[16px]'>
-									<li className='text-[#A1A5A5] hover:text-white transition-all duration-200 cursor-pointer text-[14px] leading-[22px]'>
-										Global Partners
-									</li>
-									<li className='text-[#A1A5A5] hover:text-white transition-all duration-200 cursor-pointer text-[14px] leading-[22px]'>
-										About us
-									</li>
-									<li className='text-[#A1A5A5] hover:text-white transition-all duration-200 cursor-pointer text-[14px] leading-[22px]'>
-										Our Team
-									</li>
-								</ul>
-							</div>
-
-							{/* Resources */}
-							<div className='max-w-[187px] w-full'>
-								<p className='text-white text-[14px] font-[500] leading-[22px]'>
-									Resources
-								</p>
-								<ul className='pt-[24px] space-y-[16px]'>
-									<li className='text-[#A1A5A5] hover:text-white transition-all duration-200 cursor-pointer text-[14px] leading-[22px]'>
-										Contact
-									</li>
-									<li className='text-[#A1A5A5] hover:text-white transition-all duration-200 cursor-pointer text-[14px] leading-[22px]'>
-										Privacy Policy
-									</li>
-									<li className='text-[#A1A5A5] hover:text-white transition-all duration-200 cursor-pointer text-[14px] leading-[22px]'>
-										Terms of Service
-									</li>
-								</ul>
-							</div>
-
-							{/* Contact */}
+							{/* Contact info */}
 							<div className='max-w-[187px] w-full'>
 								<p className='text-white text-[14px] font-[500] leading-[22px]'>
 									Contacts
 								</p>
-								<ul className='pt-[24px] space-y-[16px]'>
-									<li className='text-[#A1A5A5] hover:text-white transition-all duration-200 cursor-pointer text-[14px] leading-[22px]'>
-										<Mail className='inline w-5 h-5' /> example@gmail.com
+								<ul className='pt-[24px] space-y-[16px] text-[#A1A5A5] text-[14px] leading-[22px]'>
+									<li className='flex items-center gap-2 hover:text-white transition-all'>
+										<Mail className='w-4 h-4' />
+										<a href='mailto:example@gmail.com'>example@gmail.com</a>
 									</li>
-									<li className='text-[#A1A5A5] hover:text-white transition-all duration-200 cursor-pointer text-[14px] leading-[22px]'>
-										<Phone className='inline w-5 h-5' /> +998991234565
+									<li className='flex items-center gap-2 hover:text-white transition-all'>
+										<Phone className='w-4 h-4' />
+										<a href='tel:+998991234565'>+998 99 123 45 65</a>
 									</li>
-									<li className='text-[#A1A5A5] hover:text-white transition-all duration-200 cursor-pointer text-[14px] leading-[22px]'>
-										<MapPin className='inline w-5 h-5' /> IT Investments Center
+									<li className='flex items-center gap-2 hover:text-white transition-all'>
+										<MapPin className='w-4 h-4' />
+										<span>IT Investments Center</span>
 									</li>
 								</ul>
 							</div>
@@ -113,21 +115,18 @@ const Footer = () => {
 					{/* Bottom */}
 					<div className='pt-[114px] flex items-center justify-between max-sm:flex-col max-sm:gap-[45px] relative z-10'>
 						<p className='text-white text-[14px] leading-[22px]'>
-							©2025 ITIC. All rights reserved
+							©{new Date().getFullYear()} ITIC. All rights reserved.
 						</p>
 						<div className='flex items-center gap-[32px]'>
-							<Link href='/' className='text-white text-[14px] leading-[22px]'>
-								Telegram
-							</Link>
-							<Link href='/' className='text-white text-[14px] leading-[22px]'>
-								LinkedIn
-							</Link>
-							<Link href='/' className='text-white text-[14px] leading-[22px]'>
-								Twitter
-							</Link>
-							<Link href='/' className='text-white text-[14px] leading-[22px]'>
-								Instagram
-							</Link>
+							{socialLinks.map(item => (
+								<Link
+									key={item.label}
+									href={item.href}
+									className='text-white text-[14px] leading-[22px]'
+								>
+									{item.label}
+								</Link>
+							))}
 						</div>
 					</div>
 

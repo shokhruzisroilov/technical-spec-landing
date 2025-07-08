@@ -25,13 +25,13 @@ const Header = () => {
 
 	return (
 		<header className='flex justify-between items-center px-10 lg:px-30 py-8 bg-white relative z-50'>
-			{/* LEFT: Logo */}
+			{/* LEFT: Logo + Desktop Nav */}
 			<div className='flex items-center gap-6'>
 				<Link href='/'>
 					<Image src='/images/svg/logo.svg' alt='Logo' width={64} height={32} />
 				</Link>
 
-				{/* DESKTOP NAV */}
+				{/* DESKTOP NAVIGATION */}
 				<NavigationMenu viewport={false} className='hidden lg:block'>
 					<NavigationMenuList className='flex gap-6'>
 						{navLinks.map(item => (
@@ -77,7 +77,7 @@ const Header = () => {
 				</NavigationMenu>
 			</div>
 
-			{/* DESKTOP RIGHT */}
+			{/* RIGHT (Desktop) */}
 			<div className='hidden lg:flex items-center gap-4'>
 				<LocaleSwitcher locale={locale} onChange={setLocale} />
 				<Link href='/contact-us'>
@@ -90,18 +90,19 @@ const Header = () => {
 				</Link>
 			</div>
 
-			{/* MOBILE RIGHT  */}
+			{/* RIGHT (Mobile) */}
 			<div className='flex lg:hidden items-center gap-2'>
 				<LocaleSwitcher locale={locale} onChange={setLocale} />
 				<button
-					onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+					onClick={() => setMobileMenuOpen(true)}
 					className='text-black cursor-pointer'
+					aria-label='Open mobile menu'
 				>
-					<Menu size={40} />
+					<Menu size={32} />
 				</button>
 			</div>
 
-			{/* MOBILE MENU  */}
+			{/* MOBILE MENU */}
 			<div
 				className={clsx(
 					'fixed top-0 left-0 h-full w-[75%] max-w-sm bg-white shadow-md z-50 transform transition-transform duration-300 ease-in-out lg:hidden',
@@ -112,11 +113,13 @@ const Header = () => {
 					<button
 						onClick={() => setMobileMenuOpen(false)}
 						className='cursor-pointer'
+						aria-label='Close mobile menu'
 					>
 						<X size={24} />
 					</button>
-					<h2 className='ont-semibold text-base leading-6'>Menu</h2>
+					<h2 className='font-semibold text-base leading-6'>Menu</h2>
 				</div>
+
 				<nav className='flex flex-col gap-2 p-4'>
 					{navLinks.map(item =>
 						item.type === 'dropdown' ? (
@@ -143,7 +146,7 @@ const Header = () => {
 					)}
 					<Link
 						href='/contact-us'
-						className='mt-4 bg-[#00CFC8] text-white text-center py-2 rounded-md'
+						className='mt-4 bg-[#00CFC8] text-white text-center py-2 rounded-md cursor-pointer'
 						onClick={() => setMobileMenuOpen(false)}
 					>
 						Contact us
@@ -151,11 +154,12 @@ const Header = () => {
 				</nav>
 			</div>
 
-			{/* OVERLAY */}
+			{/* BACKDROP */}
 			{mobileMenuOpen && (
 				<div
 					className='fixed inset-0 bg-black opacity-30 z-40 lg:hidden'
 					onClick={() => setMobileMenuOpen(false)}
+					aria-hidden
 				/>
 			)}
 		</header>

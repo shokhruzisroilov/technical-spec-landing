@@ -15,29 +15,36 @@ type Props = {
 	onChange: (locale: Locale) => void
 }
 
+const languages: { label: string; code: Locale }[] = [
+	{ label: 'O‘zbek', code: 'uz' },
+	{ label: 'Русский', code: 'ru' },
+	{ label: 'English', code: 'en' },
+]
+
 const LocaleSwitcher = ({ locale, onChange }: Props) => {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
 				<Button
 					variant='outline'
-					className='flex items-center gap-2 px-2 py-[6px] text-sm font-medium leading-5 tracking-normal cursor-pointer'
+					className='flex items-center gap-2 px-3 py-[6px] text-sm font-medium leading-5 tracking-normal'
+					aria-label='Change Language'
 				>
-					<Globe className='w-5 h-5 color-[#0A0A0A] opacity-[45%]' />
+					<Globe className='w-5 h-5 text-[#0A0A0A] opacity-45' />
 					{locale.toUpperCase()}
 				</Button>
 			</DropdownMenuTrigger>
 
-			<DropdownMenuContent align='end' className='w-[65px]'>
-				<DropdownMenuItem onClick={() => onChange('uz')}>
-					O‘zbek
-				</DropdownMenuItem>
-				<DropdownMenuItem onClick={() => onChange('ru')}>
-					Русский
-				</DropdownMenuItem>
-				<DropdownMenuItem onClick={() => onChange('en')}>
-					English
-				</DropdownMenuItem>
+			<DropdownMenuContent align='end' className='w-[100px]'>
+				{languages.map(lang => (
+					<DropdownMenuItem
+						key={lang.code}
+						onClick={() => onChange(lang.code)}
+						className={locale === lang.code ? 'font-semibold' : ''}
+					>
+						{lang.label}
+					</DropdownMenuItem>
+				))}
 			</DropdownMenuContent>
 		</DropdownMenu>
 	)

@@ -20,7 +20,7 @@ const HeroSection = () => {
 	return (
 		<section className='flex justify-center px-4 sm:px-6 lg:px-10 pb-10'>
 			<div className='relative w-full max-w-[1440px] overflow-hidden rounded-[32px] bg-[#091315] px-4 py-10 sm:px-8 sm:py-16 lg:px-20 lg:pt-[96px] lg:pb-[64px]'>
-				{/* Background Image (optional blur overlay) */}
+				{/* Background Image */}
 				<Image
 					src='/images/heroBg.png'
 					alt='Hero background'
@@ -50,7 +50,7 @@ const HeroSection = () => {
 				{/* Text Section */}
 				<div className='relative z-20 max-w-2xl text-left sm:text-left max-sm:text-center'>
 					<h2 className='text-white text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight'>
-						Technology that change the world
+						Your Gateway to Innovative IT Solutions
 					</h2>
 					<p className='text-[#FFFFFFB2] text-base sm:text-lg lg:text-xl leading-relaxed pt-5 max-w-xl'>
 						Unlock opportunities with our innovative IT solutions. We leverage

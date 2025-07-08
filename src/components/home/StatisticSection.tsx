@@ -1,7 +1,8 @@
-import Image from 'next/image'
-import { Stat } from '@/types'
+'use client'
 
-const stats: Stat[] = [
+import Image from 'next/image'
+
+const stats = [
 	{
 		value: '1200+',
 		description:
@@ -34,52 +35,62 @@ const stats: Stat[] = [
 	},
 ]
 
-const StatisticSection = () => {
+const StatsSection = () => {
 	return (
-		<section className='bg-[#F2F2F2] py-24 px-4 sm:px-6 flex justify-center'>
-			<div className='w-full max-w-[1110px]'>
-				{/* Header */}
-				<div className='flex flex-col lg:flex-row justify-between items-center lg:items-end mb-16 gap-8 text-center lg:text-left'>
-					<div className='space-y-4 max-w-[600px]'>
-						<div className='inline-block bg-white rounded-full px-3 py-1 shadow-sm'>
-							<p className='text-[#141515] text-xs font-medium'>
+		<div className='bg-[#F2F2F2] flex justify-center overflow-hidden'>
+			<div className='py-[108px] max-w-[1110px] w-full flex flex-col items-center px-4 sm:px-6 max-sm:pt-[46px] max-sm:pb-[68px]'>
+				<div className='max-w-[1110px] w-full flex flex-col items-center text-center sm:text-left sm:items-start'>
+					<div className='max-w-[519px] w-full mb-4'>
+						<div
+							className='py-[6px] px-[12px] rounded-full w-fit mx-auto sm:mx-0 bg-white max-sm:px-[10px]'
+							style={{
+								boxShadow:
+									'rgba(0, 0, 0, 0.04) 0px -1px 0.5px 0px inset, rgba(0, 0, 0, 0.04) 0px 0px 0px 1px, rgba(0, 0, 0, 0.06) 0px 0.5px 1px 0px, rgba(0, 0, 0, 0.04) 0px 2px 2px -1px, rgba(27, 27, 27, 0.03) 0px 3px 3px -1.5px, rgba(0, 0, 0, 0.03) 0px 4px 4px -2px, rgba(0, 0, 0, 0.02) 0px 8px 8px -4px',
+							}}
+						>
+							<p className='text-[#141515] text-[12px] font-medium leading-[18px]'>
 								ITIC Digital Solutions Suite
 							</p>
 						</div>
-						<h2 className='text-[#141515] text-4xl font-semibold leading-tight'>
-							Boost Productivity and <br className='hidden lg:block' />
-							Drive Success with ITIC
-						</h2>
 					</div>
-					<p className='text-[#646868] text-sm max-w-[400px]'>
-						At ITIC, we bring your ideas to life with cutting-edge technology
-						and creativity!
-					</p>
+
+					<div className='w-full flex flex-col sm:flex-row sm:items-end sm:justify-start gap-[40px] sm:gap-[80px] items-center text-center sm:text-left'>
+						<h2 className='text-[#141515] text-[32px] sm:text-[40px] leading-[40px] sm:leading-[48px] font-semibold pt-[16px] max-w-[519px]'>
+							Boost Productivity and Drive Success with ITIC
+						</h2>
+						<p className='text-[#646868] text-[14px] leading-[22px] max-w-[384px]'>
+							At ITIC, we bring your ideas to life with cutting-edge technology
+							and creativity!
+						</p>
+					</div>
 				</div>
 
-				{/* Globe background */}
-				<div className='relative'>
-					<div className='absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden'>
-						<Image
-							src='/images/globe.png'
-							alt='globe'
-							width={1340}
-							height={340}
-							className='w-full object-contain opacity-50'
-						/>
-					</div>
+				<div className='relative max-sm:mx-[10px] max-sm:pt-[130px] w-full mt-12'>
+					{/* Globe image */}
+					<Image
+						src='/images/globe.png'
+						alt='globe'
+						width={1340}
+						height={341}
+						className='h-[341px] w-[1340px] absolute top-[25px] left-0 object-cover max-sm:w-[342px] max-sm:h-[121px]'
+					/>
 
-					{/* Stats */}
-					<div className='relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
-						{stats.map(stat => (
+					{/* Cards */}
+					<div className='relative z-50 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[20px] sm:mt-44 max-w-[1110px] mx-auto'>
+						{stats.map((stat, index) => (
 							<div
-								key={stat.value}
-								className='bg-white rounded-xl shadow-sm p-6 text-left'
+								key={index}
+								className='p-[32px] bg-white rounded-[20px] w-full h-[190px] mx-auto text-center sm:text-left'
+								style={{
+									boxShadow:
+										'rgba(0, 0, 0, 0.04) 0px 0px 0px 1px, rgba(0, 0, 0, 0.06) 0px 0.5px 1px 0px, rgba(0, 0, 0, 0.04) 0px 2px 2px -1px, rgba(27, 27, 27, 0.03) 0px 3px 3px -1.5px, rgba(0, 0, 0, 0.03) 0px 4px 4px -2px, rgba(0, 0, 0, 0.02) 0px 8px 8px -4px, rgba(0, 0, 0, 0.04) 0px -1px 0.5px 0px inset',
+									backdropFilter: 'blur(36px)',
+								}}
 							>
-								<h3 className='text-[#141515] text-2xl font-semibold mb-2'>
+								<span className='text-[#141515] text-[32px] sm:text-[40px] font-semibold leading-[44px] sm:leading-[56px] block'>
 									{stat.value}
-								</h3>
-								<p className='text-[#646868] text-sm leading-relaxed'>
+								</span>
+								<p className='text-[#8C9292] text-[14px] leading-[22px] pt-[8px]'>
 									{stat.description}
 								</p>
 							</div>
@@ -87,8 +98,8 @@ const StatisticSection = () => {
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
 	)
 }
 
-export default StatisticSection
+export default StatsSection

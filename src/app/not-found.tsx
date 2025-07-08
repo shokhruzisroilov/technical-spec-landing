@@ -1,4 +1,4 @@
-import { Link } from 'lucide-react'
+import Link from 'next/link'
 
 export default function NotFound() {
 	return (
@@ -8,11 +8,10 @@ export default function NotFound() {
 				<p className='text-lg text-gray-500 mb-6'>
 					Kechirasiz, bu sahifa mavjud emas.
 				</p>
-				<Link
-					href='/'
-					className='text-white bg-blue-600 px-4 py-2 rounded hover:bg-blue-700 transition'
-				>
-					Bosh sahifaga qaytish
+				<Link href='/' passHref>
+					<div className='text-white bg-blue-600 px-4 py-2 rounded hover:bg-blue-700 transition inline-block cursor-pointer'>
+						Bosh sahifaga qaytish
+					</div>
 				</Link>
 			</div>
 		</div>
